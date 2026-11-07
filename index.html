@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#ff4d6d" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Will You Be Mine? ❤️ | A Special Question</title>
+  
+  <!-- Romantic Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-light">
+  <!-- Preloader Screen -->
+  <div id="loader" class="loader-screen">
+    <div class="loader-content">
+      <div class="beating-heart-loader">
+        <svg viewBox="0 0 100 100" class="heart-svg-loader">
+          <path d="M50,88.5 C50,88.5 10,60 10,34 C10,20 21,10 35,10 C42,10 48,14 50,19 C52,14 58,10 65,10 C79,10 90,20 90,34 C90,60 50,88.5 50,88.5 Z" />
+        </svg>
+        <div class="loader-glow"></div>
+      </div>
+      <p class="loader-text">Gathering all my love for you... <span class="sparkle">✨</span></p>
+    </div>
+  </div>
+
+  <!-- Background Canvas for Floating Heart Particles -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Foreground Canvas for Confetti & Fireworks -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Floating Cursor Trail Canvas -->
+  <canvas id="cursor-canvas"></canvas>
+
+  <!-- Top Floating Controls (Music, Theme, Customize) -->
+  <header class="top-nav">
+    <div class="nav-pill glassmorphic">
+      <!-- Music Control -->
+      <button id="music-btn" class="nav-btn" title="Toggle Romantic Music" aria-label="Toggle Romantic Music">
+        <span class="icon" id="music-icon">🎵</span>
+        <span class="music-wave" id="music-wave">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="btn-tooltip">Music: Off</span>
+      </button>
+
+      <!-- Theme Switcher (Light / Dark) -->
+      <button id="theme-btn" class="nav-btn" title="Toggle Day / Starlight Mode" aria-label="Toggle Theme">
+        <span class="icon" id="theme-icon">🌙</span>
+        <span class="btn-tooltip">Starlight Mode</span>
+      </button>
+
+      <!-- Personalize Name Modal Trigger -->
+      <button id="customize-btn" class="nav-btn" title="Personalize Names" aria-label="Personalize Names">
+        <span class="icon">✏️</span>
+        <span class="btn-tooltip">Personalize</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Scroll Container -->
+  <main class="main-wrapper">
+
+    <!-- ==============================================
+         SECTION 1: LANDING PAGE
+         ============================================== -->
+    <section id="hero" class="section hero-section">
+      <div class="hero-container glassmorphic-card">
+        <div class="romantic-badge">
+          <span class="badge-icon">💌</span>
+          <span class="badge-text">A special message just for you</span>
+        </div>
+
+        <!-- Romantic Typewriter Heading -->
+        <h1 class="hero-title">
+          <span id="typewriter-text"></span><span class="typing-cursor">|</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          From the day you entered my life, every moment has become a little brighter, sweeter, and more unforgettable.
+        </p>
+
+        <!-- Glowing Start Button -->
+        <div class="hero-cta">
+          <button id="start-btn" class="btn-glow-romantic">
+            <span class="btn-content">
+              <span>Open My Heart</span>
+              <span class="btn-heart">❤️</span>
+            </span>
+            <span class="btn-shimmer"></span>
+          </button>
+        </div>
+
+        <div class="scroll-hint">
+          <span>Scroll to begin our journey</span>
+          <div class="mouse-icon">
+            <div class="wheel"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         SECTION 2: STORY SECTION (MEMORY CARDS)
+         ============================================== -->
+    <section id="story" class="section story-section">
+      <div class="story-header text-center">
+        <span class="section-tag">Our Beautiful Moments</span>
+        <h2 class="section-title">The Story of Us <span class="gold-gradient">✨</span></h2>
+        <p class="section-desc">
+          Every memory we share is a chapter in the most romantic story ever written.
+        </p>
+      </div>
+
+      <div class="memory-grid">
+        <!-- Card 1 -->
+        <div class="memory-card glassmorphic-card" data-card="1">
+          <div class="card-pin">📌</div>
+          <div class="card-visual">
+            <!-- Cute SVG: First Sight / Meeting -->
+            <svg viewBox="0 0 300 200" class="memory-svg" aria-label="First Sight Illustration">
+              <defs>
+                <linearGradient id="grad-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#ffe5ec"/>
+                  <stop offset="100%" stop-color="#ffb3c1"/>
+                </linearGradient>
+                <linearGradient id="grad-heart" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ff4d6d"/>
+                  <stop offset="100%" stop-color="#c9184a"/>
+                </linearGradient>
+              </defs>
+              <rect width="300" height="200" rx="16" fill="url(#grad-sky)"/>
+              <!-- Romantic soft clouds & stars -->
+              <circle cx="50" cy="50" r="18" fill="#fff" opacity="0.6"/>
+              <circle cx="70" cy="45" r="24" fill="#fff" opacity="0.6"/>
+              <circle cx="230" cy="60" r="20" fill="#fff" opacity="0.6"/>
+              <circle cx="250" cy="52" r="26" fill="#fff" opacity="0.6"/>
+              <!-- Sparkling Stars -->
+              <polygon points="150,25 153,33 162,35 155,40 157,48 150,43 143,48 145,40 138,35 147,33" fill="#ffd700"/>
+              <!-- Couple Silhouettes under moonlight -->
+              <circle cx="150" cy="110" r="45" fill="#fff" opacity="0.75"/>
+              <!-- Boy silhouette -->
+              <circle cx="132" cy="115" r="14" fill="#590d22"/>
+              <path d="M120,150 C120,132 144,132 144,150 Z" fill="#590d22"/>
+              <!-- Girl silhouette with cute ponytail -->
+              <circle cx="168" cy="117" r="13" fill="#800f2f"/>
+              <path d="M155,150 C155,134 180,134 180,150 Z" fill="#800f2f"/>
+              <circle cx="180" cy="120" r="6" fill="#800f2f"/>
+              <!-- Heart between them -->
+              <path class="pulsing-svg-heart" d="M150,95 C150,95 142,85 137,89 C132,93 133,101 150,110 C167,101 168,93 163,89 C158,85 150,95 150,95 Z" fill="url(#grad-heart)"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <span class="memory-number">Chapter 01</span>
+            <h3 class="memory-title">The First Spark</h3>
+            <p class="memory-text">
+              The very first time I talked to you, time seemed to stand still. Little did I know, my whole world was about to change for the better.
+            </p>
+            <div class="memory-tag">"Love at first conversation"</div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="memory-card glassmorphic-card" data-card="2">
+          <div class="card-pin">📌</div>
+          <div class="card-visual">
+            <!-- Cute SVG: Cozy Coffee & Endless Laughs -->
+            <svg viewBox="0 0 300 200" class="memory-svg" aria-label="Coffee & Conversations">
+              <defs>
+                <linearGradient id="grad-warm" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fff0f3"/>
+                  <stop offset="100%" stop-color="#ffccd5"/>
+                </linearGradient>
+              </defs>
+              <rect width="300" height="200" rx="16" fill="url(#grad-warm)"/>
+              <!-- Coffee Cups with Heart Steam -->
+              <!-- Cup 1 (Pink) -->
+              <rect x="95" y="95" width="46" height="42" rx="10" fill="#ff758f"/>
+              <path d="M141,105 C152,105 152,122 141,125" fill="none" stroke="#ff758f" stroke-width="6" stroke-linecap="round"/>
+              <!-- Cup 2 (Creamy Gold) -->
+              <rect x="155" y="95" width="46" height="42" rx="10" fill="#d4af37"/>
+              <path d="M155,105 C144,105 144,122 155,125" fill="none" stroke="#d4af37" stroke-width="6" stroke-linecap="round"/>
+              <!-- Saucers -->
+              <ellipse cx="118" cy="140" rx="30" ry="7" fill="#ff4d6d" opacity="0.4"/>
+              <ellipse cx="178" cy="140" rx="30" ry="7" fill="#c99700" opacity="0.4"/>
+              <!-- Steaming Hearts -->
+              <path class="steam-float" d="M118,85 C118,85 112,78 108,82 C104,86 105,92 118,98 C131,92 132,86 128,82 C124,78 118,85 118,85 Z" fill="#ff4d6d"/>
+              <path class="steam-float delay-1" d="M178,80 C178,80 172,73 168,77 C164,81 165,87 178,93 C191,87 192,81 188,77 C184,73 178,80 178,80 Z" fill="#d4af37"/>
+              <!-- Sparkles -->
+              <circle cx="80" cy="65" r="4" fill="#ffb703"/>
+              <circle cx="220" cy="70" r="5" fill="#ff758f"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <span class="memory-number">Chapter 02</span>
+            <h3 class="memory-title">Endless Conversations</h3>
+            <p class="memory-text">
+              Hours felt like seconds whenever we talked. Sharing silly jokes, late-night secrets, and laughing until our stomachs hurt.
+            </p>
+            <div class="memory-tag">"My favorite person to talk to"</div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="memory-card glassmorphic-card" data-card="3">
+          <div class="card-pin">📌</div>
+          <div class="card-visual">
+            <!-- Cute SVG: Starlight & Night Walks -->
+            <svg viewBox="0 0 300 200" class="memory-svg" aria-label="Starlight Adventure">
+              <defs>
+                <linearGradient id="grad-night" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#2b0938"/>
+                  <stop offset="100%" stop-color="#590d22"/>
+                </linearGradient>
+              </defs>
+              <rect width="300" height="200" rx="16" fill="url(#grad-night)"/>
+              <!-- Golden Crescent Moon -->
+              <path d="M70,40 A25,25 0 1 0 95,85 A30,30 0 1 1 70,40 Z" fill="#ffd700"/>
+              <!-- Twinkling Stars -->
+              <circle cx="140" cy="45" r="2" fill="#fff" class="twinkle-star"/>
+              <circle cx="180" cy="35" r="2.5" fill="#ffd700" class="twinkle-star delay-1"/>
+              <circle cx="230" cy="60" r="2" fill="#fff" class="twinkle-star delay-2"/>
+              <circle cx="260" cy="40" r="3" fill="#ffccd5" class="twinkle-star"/>
+              <circle cx="120" cy="80" r="1.5" fill="#fff"/>
+              <!-- Hill silhouette -->
+              <path d="M0,170 Q150,130 300,170 L300,200 L0,200 Z" fill="#1f0724"/>
+              <!-- Street Lamp with Warm Light -->
+              <line x1="210" y1="100" x2="210" y2="175" stroke="#d4af37" stroke-width="4"/>
+              <polygon points="202,100 218,100 222,90 198,90" fill="#ffd700"/>
+              <circle cx="210" cy="98" r="16" fill="#ffd700" opacity="0.4"/>
+              <!-- Couple holding hands under the lantern -->
+              <circle cx="160" cy="142" r="10" fill="#ff758f"/>
+              <path d="M152,175 C152,157 168,157 168,175 Z" fill="#ff758f"/>
+              <circle cx="185" cy="144" r="9" fill="#ffb3c1"/>
+              <path d="M178,175 C178,160 192,160 192,175 Z" fill="#ffb3c1"/>
+              <!-- Joined arms -->
+              <path d="M165,160 Q174,166 181,161" stroke="#ffccd5" stroke-width="3" fill="none"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <span class="memory-number">Chapter 03</span>
+            <h3 class="memory-title">Adventures Under the Stars</h3>
+            <p class="memory-text">
+              Every little walk, every shared silence, and every glance felt like pure stardust. In you, I found my calm and my sweetest adventure.
+            </p>
+            <div class="memory-tag">"Every moment with you is magic"</div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="memory-card glassmorphic-card" data-card="4">
+          <div class="card-pin">📌</div>
+          <div class="card-visual">
+            <!-- Cute SVG: The Heart Choice / Love Letter -->
+            <svg viewBox="0 0 300 200" class="memory-svg" aria-label="The Realization of Love">
+              <defs>
+                <linearGradient id="grad-letter" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffccd5"/>
+                  <stop offset="100%" stop-color="#ff758f"/>
+                </linearGradient>
+              </defs>
+              <rect width="300" height="200" rx="16" fill="url(#grad-letter)"/>
+              <!-- Love Envelope -->
+              <rect x="75" y="70" width="150" height="95" rx="8" fill="#fff" stroke="#ff4d6d" stroke-width="2"/>
+              <!-- Envelope flap -->
+              <polygon points="75,70 150,125 225,70" fill="#fff0f3" stroke="#ff4d6d" stroke-width="2"/>
+              <polygon points="75,165 150,115 225,165" fill="#ffe5ec" stroke="#ff758f" stroke-width="1.5"/>
+              <!-- Glowing Wax Seal Heart -->
+              <circle cx="150" cy="115" r="18" fill="#c9184a"/>
+              <path d="M150,110 C150,110 144,103 140,106 C136,109 137,115 150,122 C163,115 164,109 160,106 C156,103 150,110 150,110 Z" fill="#fff"/>
+              <!-- Floating little heart sparkles -->
+              <path class="steam-float" d="M100,50 C100,50 95,43 91,46 C87,49 88,54 100,60 C112,54 113,49 109,46 C105,43 100,50 100,50 Z" fill="#ff4d6d"/>
+              <path class="steam-float delay-1" d="M200,45 C200,45 195,38 191,41 C187,44 188,49 200,55 C212,49 213,44 209,41 C205,38 200,45 200,45 Z" fill="#c9184a"/>
+              <circle cx="150" cy="40" r="4" fill="#ffd700"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <span class="memory-number">Chapter 04</span>
+            <h3 class="memory-title">When I Knew It Was You</h3>
+            <p class="memory-text">
+              There wasn't just one moment; it was in the way you smile, how kind your heart is, and how you make me want to be the best version of myself.
+            </p>
+            <div class="memory-tag">"My heart found its home"</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story CTA to Proposal -->
+      <div class="story-cta-wrapper text-center">
+        <p class="story-bridge-text">And now, all those beautiful memories have brought us right here...</p>
+        <button id="goto-proposal-btn" class="btn-glow-romantic">
+          <span>The Most Important Question</span>
+          <span class="btn-heart">💍</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         SECTION 3: PROPOSAL SECTION (THE BIG QUESTION)
+         ============================================== -->
+    <section id="proposal" class="section proposal-section">
+      <div class="proposal-card glassmorphic-card" id="proposal-box">
+        
+        <!-- Large Beating Central Heart -->
+        <div class="proposal-heart-container">
+          <div class="heart-pulse-halo"></div>
+          <div class="heart-pulse-halo delay-halo"></div>
+          <svg viewBox="0 0 100 100" class="proposal-big-heart" id="big-beating-heart">
+            <defs>
+              <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff4365"/>
+                <stop offset="50%" stop-color="#ff0055"/>
+                <stop offset="100%" stop-color="#b3003b"/>
+              </linearGradient>
+              <filter id="heartGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#ff1a53" flood-opacity="0.6"/>
+              </filter>
+            </defs>
+            <path d="M50,88 C50,88 12,58 12,32 C12,18 23,8 37,8 C44,8 48,12 50,16 C52,12 56,8 63,8 C77,8 88,18 88,32 C88,58 50,88 50,88 Z" 
+                  fill="url(#heartGradient)" filter="url(#heartGlow)"/>
+            <!-- Cute highlight reflection -->
+            <path d="M24,28 C24,20 30,16 38,15 C33,18 30,24 30,30 C30,34 32,38 34,42 C28,38 24,33 24,28 Z" fill="#ffffff" opacity="0.4"/>
+          </svg>
+          <span class="sparkle-orbit orbit-1">✨</span>
+          <span class="sparkle-orbit orbit-2">💖</span>
+          <span class="sparkle-orbit orbit-3">⭐</span>
+        </div>
+
+        <!-- Proposal Question -->
+        <div class="proposal-text-wrap">
+          <h2 class="proposal-question" id="proposal-headline">
+            Will You Be My <span class="highlight-partner" id="partner-title">Girlfriend</span>? ❤️
+          </h2>
+          <p class="proposal-subtext">
+            My life is so much sweeter, brighter, and happier with you by my side.
+          </p>
+        </div>
+
+        <!-- Interactive Yes/No Buttons Arena -->
+        <div class="proposal-buttons-arena" id="buttons-arena">
+          <!-- YES BUTTON (Scales dynamically) -->
+          <button id="yes-btn" class="btn-proposal btn-yes">
+            <span class="btn-sparkle">✨</span>
+            <span class="btn-text">💖 Yes, Absolutely!</span>
+            <span class="btn-sparkle">✨</span>
+          </button>
+
+          <!-- NO BUTTON (Runs away playfully) -->
+          <button id="no-btn" class="btn-proposal btn-no">
+            <span class="btn-text">😅 No</span>
+          </button>
+
+          <!-- Playful Speech Bubble for the escaping "No" button -->
+          <div id="no-speech-bubble" class="speech-bubble hidden">
+            <span id="speech-text">Hey, you can't click that! 😜</span>
+          </div>
+        </div>
+
+        <!-- Escape counter note -->
+        <div class="rejection-counter" id="rejection-counter">
+          <!-- Populated playfully by JS -->
+        </div>
+
+        <!-- Partner Switch Pill (Customize on the fly) -->
+        <div class="partner-selector">
+          <span class="selector-label">Addressing:</span>
+          <button class="partner-pill active" data-type="Girlfriend">Girlfriend</button>
+          <button class="partner-pill" data-type="Boyfriend">Boyfriend</button>
+          <button class="partner-pill" data-type="Soulmate">Soulmate</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==============================================
+         SECTION 4: SUCCESS / CELEBRATION MODAL SCREEN
+         ============================================== -->
+    <div id="celebration-overlay" class="celebration-overlay hidden">
+      <div class="celebration-card glassmorphic-card">
+        
+        <!-- Celebration Crown / Rings Header -->
+        <div class="celebration-badge-wrap">
+          <div class="celebration-rings">💍✨💖</div>
+          <h2 class="celebration-title">
+            Yay! ❤️ You Made Me The Happiest Person in the World!
+          </h2>
+          <p class="celebration-tagline">
+            Our hands are held, our hearts are one, and the best adventures are yet to come.
+          </p>
+        </div>
+
+        <!-- Live Love Counter: Counting up from right now! -->
+        <div class="timer-card glassmorphic-subcard">
+          <div class="timer-header">
+            <span class="timer-icon">⏳</span>
+            <span class="timer-title">Officially in Love For:</span>
+          </div>
+          
+          <div class="countdown-grid" id="love-counter">
+            <div class="count-box">
+              <span class="count-number" id="count-days">0</span>
+              <span class="count-label">Days</span>
+            </div>
+            <div class="count-separator">:</div>
+            <div class="count-box">
+              <span class="count-number" id="count-hours">00</span>
+              <span class="count-label">Hours</span>
+            </div>
+            <div class="count-separator">:</div>
+            <div class="count-box">
+              <span class="count-number" id="count-minutes">00</span>
+              <span class="count-label">Mins</span>
+            </div>
+            <div class="count-separator">:</div>
+            <div class="count-box">
+              <span class="count-number" id="count-seconds">00</span>
+              <span class="count-label">Secs</span>
+            </div>
+          </div>
+          <p class="timer-live-caption">...and counting every second with you forever! 💕</p>
+        </div>
+
+        <!-- Actions -->
+        <div class="celebration-actions">
+          <button id="forever-btn" class="btn-forever">
+            <span>Forever Together ❤️</span>
+            <span class="btn-shine"></span>
+          </button>
+          <button id="replay-fireworks-btn" class="btn-secondary-romantic">
+            <span>More Fireworks! 🎆</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==============================================
+       LOVE LETTER / VOWS MODAL
+       ============================================== -->
+  <div id="letter-modal" class="letter-modal hidden">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="letter-container glassmorphic-card">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Letter">&times;</button>
+      
+      <div class="letter-paper">
+        <div class="wax-seal">❤️</div>
+        <h3 class="letter-title">A Promise For Tomorrow & Always</h3>
+        <div class="letter-body">
+          <p class="salutation">My Dearest Love,</p>
+          <p>
+            Saying "Yes" today is the most precious gift I could ever ask for. 
+            I promise to always listen when you speak, hold you tight when you're cold, celebrate your victories as my own, and stand by you through every storm.
+          </p>
+          <p>
+            I promise to make you laugh every single day, to be your biggest cheerleader, and to love you more with every sunrise that passes.
+          </p>
+          <p class="closing">Forever and ever,</p>
+          <p class="signature" id="signature-text">Yours Always ❤️</p>
+        </div>
+        <div class="letter-footer">
+          <button class="btn-glow-romantic btn-sm" id="seal-letter-btn">
+            <span>Keep in My Heart Forever 💌</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================================
+       PERSONALIZE NAMES MODAL
+       ============================================== -->
+  <div id="customize-modal" class="customize-modal hidden">
+    <div class="modal-backdrop" id="cust-backdrop"></div>
+    <div class="customize-box glassmorphic-card">
+      <button class="modal-close-btn" id="cust-close-btn">&times;</button>
+      <h3 class="cust-title">Personalize Your Proposal 💖</h3>
+      <p class="cust-desc">Customize the names so your proposal feels tailored just for them!</p>
+      
+      <form id="customize-form" class="cust-form">
+        <div class="form-group">
+          <label for="input-recipient">Their Name / Sweet Nickname:</label>
+          <input type="text" id="input-recipient" placeholder="e.g. My Sunshine, Sarah, Alex..." maxlength="30" />
+        </div>
+        <div class="form-group">
+          <label for="input-sender">Your Name:</label>
+          <input type="text" id="input-sender" placeholder="e.g. Your Love, Monish, etc." maxlength="30" />
+        </div>
+        <div class="form-group">
+          <label>Proposal Question:</label>
+          <select id="select-role">
+            <option value="Girlfriend">Will You Be My Girlfriend? ❤️</option>
+            <option value="Boyfriend">Will You Be My Boyfriend? ❤️</option>
+            <option value="Valentine">Will You Be My Valentine? ❤️</option>
+            <option value="Partner">Will You Be My Partner in Crime? ❤️</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-glow-romantic btn-full">
+          <span>Save & Update Website ✨</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Audio Element for optional custom MP3, paired with our Web Audio synthesizer -->
+  <audio id="romantic-audio" loop preload="auto"></audio>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
