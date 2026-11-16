@@ -1703,7 +1703,48 @@ body.theme-dark .letter-title {
     padding: 5px 12px;
     font-size: 0.78rem;
   }
+/* ===== Navigation Bar ===== */
 
+.top-nav{
+    position: sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 20px;
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(12px);
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:700;
+    color:#ff3366;
+}
+
+.logo span{
+    margin-left:6px;
+}
+
+.nav-links{
+    display:flex;
+    gap:18px;
+    overflow-x:auto;
+    white-space:nowrap;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#444;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#ff3366;
+}
   .rejection-counter {
     font-size: 0.85rem;
   }
