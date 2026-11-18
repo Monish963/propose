@@ -137,5 +137,24 @@ document.querySelectorAll(".share-btn").forEach(button => {
     });
 });
 </script>
+<script>
+document.querySelectorAll(".like-btn").forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        let count = this.querySelector("span");
+
+        let likes = parseInt(count.innerText);
+
+        likes++;
+
+        count.innerText = likes;
+
+        this.innerHTML = "❤️ Liked " + likes;
+
+    });
+
+});
+</script> 
 </body>
 </html>
