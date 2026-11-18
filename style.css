@@ -1749,3 +1749,69 @@ body.theme-dark .letter-title {
     font-size: 0.85rem;
   }
 }
+/* ===========================
+   SHAYARI PAGE
+=========================== */
+
+.page-title{
+    text-align:center;
+    padding:40px 20px 20px;
+}
+
+.page-title h1{
+    font-size:42px;
+    color:#ff2d75;
+    margin-bottom:10px;
+}
+
+.page-title p{
+    color:#666;
+    font-size:18px;
+}
+
+.shayari-container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.shayari-card{
+    background:rgba(255,255,255,.9);
+    border-radius:25px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 15px 40px rgba(255,77,109,.15);
+    text-align:center;
+    transition:.3s;
+}
+
+.shayari-card:hover{
+    transform:translateY(-6px);
+}
+
+.shayari-card h3{
+    color:#ff2d75;
+    margin-bottom:20px;
+}
+
+.shayari-card p{
+    font-size:22px;
+    line-height:1.9;
+    color:#444;
+}
+
+.shayari-card button{
+    margin-top:20px;
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.shayari-card button:hover{
+    background:#e63b5c;
+}
