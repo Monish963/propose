@@ -103,6 +103,24 @@
     <button>📋 Copy</button>
 </div>
 </section>
+<script>
+document.querySelectorAll(".share-btn").forEach(button => {
+    button.addEventListener("click", function(){
 
+        let text = this.closest(".shayari-card").querySelector("p").innerText;
+
+        if(navigator.share){
+            navigator.share({
+                title: "Romantic Shayari ❤️",
+                text: text,
+                url: window.location.href
+            });
+        } else {
+            alert("Share option mobile browser me available nahi hai");
+        }
+
+    });
+});
+</script>
 </body>
 </html>
