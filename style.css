@@ -1891,5 +1891,26 @@ body{
     position: relative;
 }
 
+.search-box {
+    width: 90%;
+    max-width: 600px;
+    margin: 25px auto;
+    position: relative;
+}
 
+.search-box input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 2px solid #ff6b9d;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    box-shadow: 0 0 15px rgba(255, 107, 157, 0.4);
+    border-color: #ff4081;
+}
 
