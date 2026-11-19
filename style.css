@@ -1885,10 +1885,10 @@ body{
 }
 
 .search-box {
-    position: fixed;
-    top: 70px;
+    position: flowing;
+    top: 50px;
     left: 0;
-    width: 100%;
+    width: 80%;
     z-index: 9999;
     background: white;
     padding: 10px;
