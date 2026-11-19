@@ -1902,3 +1902,7 @@ body{
     margin: 0;
     z-index: 2000;
 }
+
+.page-title {
+    padding-top: 120px;
+}
