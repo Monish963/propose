@@ -976,3 +976,33 @@ document.addEventListener('DOMContentLoaded', () => {
     customizeModal.classList.add('hidden');
   });
  });
+// ================================
+// 🔍 QUOTE SEARCH SYSTEM
+// ================================
+
+const quoteSearch = document.getElementById("quoteSearch");
+
+if(quoteSearch){
+
+    quoteSearch.addEventListener("input", function(){
+
+        let searchText = this.value.toLowerCase();
+
+        let quotes = document.querySelectorAll(".shayari-card");
+
+        quotes.forEach(card => {
+
+            let quoteText = card.innerText.toLowerCase();
+
+            if(quoteText.includes(searchText)){
+                card.style.display = "block";
+            }
+            else{
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+
+}
