@@ -1884,21 +1884,3 @@ body{
     margin-top:20px;
 }
 
-
-.search-box {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    background: white;
-    padding: 10px;
-}
-
-.search-box input {
-    width: 90%;
-    display: block;
-    margin: auto;
-    padding: 12px;
-    border-radius: 25px;
-}
