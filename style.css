@@ -1885,15 +1885,16 @@ body{
 }
 .search-box {
     position: sticky;
-    top: 10px;
-    z-index: 100;
-    padding: 10px;
+    top: 0;
+    z-index: 9999;
+    background: #ffffff;
+    padding: 15px;
 }
 
 .search-box input {
-    width: 60%;
-    padding: 14px;
+    width: 100%;
+    padding: 12px 20px;
     border-radius: 25px;
-    border: none;
+    border: 1px solid #ddd;
     font-size: 16px;
 }
