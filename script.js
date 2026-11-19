@@ -977,17 +977,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 // ================================
 // ❤️ LIKE BUTTON SYSTEM
-// ================================
+
+document.addEventListener("DOMContentLoaded", () => {
 
 document.querySelectorAll(".like-btn").forEach((button, index) => {
-
-    let saved = localStorage.getItem("like-" + index);
-
-    if(saved === "true"){
-        button.classList.add("liked");
-        button.innerHTML = "❤️ Liked <span>1</span>";
-    }
-
 
     button.addEventListener("click", function(){
 
@@ -996,14 +989,10 @@ document.querySelectorAll(".like-btn").forEach((button, index) => {
             this.classList.remove("liked");
             this.innerHTML = "❤️ Like <span>0</span>";
 
-            localStorage.setItem("like-" + index, "false");
-
-        }else{
+        } else {
 
             this.classList.add("liked");
             this.innerHTML = "❤️ Liked <span>1</span>";
-
-            localStorage.setItem("like-" + index, "true");
 
         }
 
@@ -1012,9 +1001,7 @@ document.querySelectorAll(".like-btn").forEach((button, index) => {
 });
 
 
-// ================================
 // 📤 SHARE BUTTON SYSTEM
-// ================================
 
 document.querySelectorAll(".share-btn").forEach(button => {
 
@@ -1022,17 +1009,14 @@ document.querySelectorAll(".share-btn").forEach(button => {
 
         let text = this.closest(".shayari-card").querySelector("p").innerText;
 
-        if(navigator.share){
-
-            navigator.share({
-                title:"Propose143 ❤️",
-                text:text,
-                url:window.location.href
-            });
-
-        }
+        navigator.share({
+            title:"Propose143 ❤️",
+            text:text,
+            url:window.location.href
+        });
 
     });
 
 });
 
+});
