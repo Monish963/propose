@@ -975,3 +975,4 @@ document.addEventListener('DOMContentLoaded', () => {
     soundEngine.playChime(659.25, 'sine', 0.3);
     customizeModal.classList.add('hidden');
   });
+ });
