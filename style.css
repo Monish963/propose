@@ -1884,4 +1884,18 @@ body{
     margin-top:20px;
 }
 
+.search-box {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+}
 
+.search-box input {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 20px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    outline: none;
+}
