@@ -1883,3 +1883,17 @@ body{
 
     margin-top:20px;
 }
+.search-box {
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    padding: 10px;
+}
+
+.search-box input {
+    width: 90%;
+    padding: 14px;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+}
