@@ -1014,9 +1014,3 @@ document.querySelectorAll(".share-btn").forEach(button => {
             text:text,
             url:window.location.href
         });
-
-    });
-
-});
-
-});
