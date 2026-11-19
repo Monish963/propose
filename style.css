@@ -1884,17 +1884,19 @@ body{
     margin-top:20px;
 }
 .search-box {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
     z-index: 9999;
-    background: #ffffff;
-    padding: 15px;
+    background: white;
+    padding: 10px;
 }
 
 .search-box input {
-    width: 100%;
-    padding: 12px 20px;
+    width: 90%;
+    display: block;
+    margin: auto;
+    padding: 12px;
     border-radius: 25px;
-    border: 1px solid #ddd;
-    font-size: 16px;
 }
