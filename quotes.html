@@ -67,6 +67,54 @@
 </section>
 
 <script src="script.js"></script>
+<script>
+document.querySelectorAll(".share-btn").forEach(button => {
+    button.addEventListener("click", function(){
 
+        let text = this.closest(".shayari-card").querySelector("p").innerText;
+
+        if(navigator.share){
+            navigator.share({
+                title: "Romantic Shayari ❤️",
+                text: text,
+                url: window.location.href
+            });
+        } else {
+            alert("Share option mobile browser me available nahi hai");
+        }
+
+    });
+});
+</script>
+<script>
+document.querySelectorAll(".like-btn").forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        let count = this.querySelector("span");
+        let likes = parseInt(count.innerText);
+
+        if(this.classList.contains("liked")){
+
+            likes--;
+            count.innerText = likes;
+
+            this.classList.remove("liked");
+            this.innerHTML = "❤️ Like <span>" + likes + "</span>";
+
+        } else {
+
+            likes++;
+            count.innerText = likes;
+
+            this.classList.add("liked");
+            this.innerHTML = "❤️ Liked <span>" + likes + "</span>";
+
+        }
+
+    });
+
+});
+</script>
 </body>
 </html>
