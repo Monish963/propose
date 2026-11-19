@@ -975,5 +975,64 @@ document.addEventListener('DOMContentLoaded', () => {
     soundEngine.playChime(659.25, 'sine', 0.3);
     customizeModal.classList.add('hidden');
   });
+// ================================
+// ❤️ LIKE BUTTON SYSTEM
+// ================================
 
+document.querySelectorAll(".like-btn").forEach((button, index) => {
+
+    let saved = localStorage.getItem("like-" + index);
+
+    if(saved === "true"){
+        button.classList.add("liked");
+        button.innerHTML = "❤️ Liked <span>1</span>";
+    }
+
+
+    button.addEventListener("click", function(){
+
+        if(this.classList.contains("liked")){
+
+            this.classList.remove("liked");
+            this.innerHTML = "❤️ Like <span>0</span>";
+
+            localStorage.setItem("like-" + index, "false");
+
+        }else{
+
+            this.classList.add("liked");
+            this.innerHTML = "❤️ Liked <span>1</span>";
+
+            localStorage.setItem("like-" + index, "true");
+
+        }
+
+    });
+
+});
+
+
+// ================================
+// 📤 SHARE BUTTON SYSTEM
+// ================================
+
+document.querySelectorAll(".share-btn").forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        let text = this.closest(".shayari-card").querySelector("p").innerText;
+
+        if(navigator.share){
+
+            navigator.share({
+                title:"Propose143 ❤️",
+                text:text,
+                url:window.location.href
+            });
+
+        }
+
+    });
+
+});
 });
