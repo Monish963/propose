@@ -1892,17 +1892,4 @@ body{
 }
 
 
-.search-box {
-    position: fixed;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 600px;
-    margin: 0;
-    z-index: 2000;
-}
 
-.page-title {
-    padding-top: 120px;
-}
