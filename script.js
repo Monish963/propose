@@ -1010,7 +1010,6 @@ if(quoteSearch){
 // ✨ DAILY QUOTE SYSTEM
 // ===============================
 
-console.log("Daily Quote Working");
 const dailyQuotes = [
     "❤️ My heart chooses you today, tomorrow, and forever.",
     "💖 Every love story is beautiful, but ours is my favorite.",
