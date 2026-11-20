@@ -1010,7 +1010,6 @@ if(quoteSearch){
 // ✨ DAILY QUOTE SYSTEM
 // ===============================
 
-// Playful phrases when user tries to refresh 
 const dailyQuotes = [
     "❤️ My heart chooses you today, tomorrow, and forever.",
     "💖 Every love story is beautiful, but ours is my favorite.",
@@ -1021,4 +1020,15 @@ const dailyQuotes = [
 ];
 
 
-  
+const dailyQuote = document.getElementById("dailyQuote");
+
+
+if(dailyQuote){
+
+    let today = new Date().getDate();
+
+    let quoteIndex = today % dailyQuotes.length;
+
+    dailyQuote.innerHTML = dailyQuotes[quoteIndex];
+
+}
