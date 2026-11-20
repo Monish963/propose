@@ -1032,3 +1032,4 @@ if(dailyQuote){
     dailyQuote.innerHTML = dailyQuotes[quoteIndex];
 
 }
+alert("Script is working");
