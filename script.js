@@ -1010,6 +1010,7 @@ if(quoteSearch){
 // ✨ DAILY QUOTE SYSTEM
 // ===============================
 
+// Playful phrases when user tries to refresh 
 const dailyQuotes = [
     "❤️ My heart chooses you today, tomorrow, and forever.",
     "💖 Every love story is beautiful, but ours is my favorite.",
@@ -1019,6 +1020,5 @@ const dailyQuotes = [
     "💍 You make my ordinary days extraordinary."
 ];
 
-// Playful phrases when user tries to refresh 
 
   
