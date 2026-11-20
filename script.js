@@ -1020,17 +1020,5 @@ const dailyQuotes = [
 ];
 
 
-const dailyQuote = document.getElementById("dailyQuote");
-
-
-if(dailyQuote){
-
-    let today = new Date().getDate();
-
-    let quoteIndex = today % dailyQuotes.length;
-
-    dailyQuote.innerHTML = dailyQuotes[quoteIndex];
-
-      }
 
   
