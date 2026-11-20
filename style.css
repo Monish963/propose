@@ -1909,3 +1909,82 @@ body{
     border-color: #ff4081;
 }
 
+/* ===============================
+   QUOTE OF THE DAY
+================================ */
+
+.daily-quote{
+
+    width:90%;
+    max-width:850px;
+    margin:50px auto;
+
+}
+
+.daily-quote-card{
+
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(255,0,80,.15);
+    border:1px solid rgba(255,255,255,.3);
+
+}
+
+.daily-quote-card h2{
+
+    color:#ff2d75;
+    margin-bottom:20px;
+    font-size:30px;
+
+}
+
+#dailyQuote{
+
+    font-size:22px;
+    line-height:1.8;
+    color:#444;
+    font-style:italic;
+    margin-bottom:20px;
+
+}
+
+.quote-author{
+
+    display:block;
+    margin-bottom:25px;
+    color:#ff2d75;
+    font-weight:bold;
+
+}
+
+.daily-quote-buttons{
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+
+}
+
+.daily-quote-buttons button{
+
+    padding:12px 24px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:#ff2d75;
+    color:white;
+    font-size:15px;
+    transition:.3s;
+
+}
+
+.daily-quote-buttons button:hover{
+
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(255,45,117,.3);
+
+}
