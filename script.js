@@ -1031,7 +1031,8 @@ if(dailyQuote){
 
     dailyQuote.innerHTML = dailyQuotes[quoteIndex];
 
-}
-  });
+            }
+
+        });
 
     });
