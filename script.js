@@ -1006,3 +1006,29 @@ if(quoteSearch){
     });
 
 }
+// ===============================
+// ✨ DAILY QUOTE SYSTEM
+// ===============================
+
+const dailyQuotes = [
+    "❤️ My heart chooses you today, tomorrow, and forever.",
+    "💖 Every love story is beautiful, but ours is my favorite.",
+    "🌹 You are the reason behind my happiest moments.",
+    "✨ Love is not perfect, but true love makes everything beautiful.",
+    "❤️ Together is my favorite place to be.",
+    "💍 You make my ordinary days extraordinary."
+];
+
+
+const dailyQuote = document.getElementById("dailyQuote");
+
+
+if(dailyQuote){
+
+    let today = new Date().getDate();
+
+    let quoteIndex = today % dailyQuotes.length;
+
+    dailyQuote.innerHTML = dailyQuotes[quoteIndex];
+
+}
