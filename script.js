@@ -1019,6 +1019,6 @@ const dailyQuotes = [
     "💍 You make my ordinary days extraordinary."
 ];
 
-dailyquotes change when refesh
+// Playful phrases when user tries to refresh 
 
   
