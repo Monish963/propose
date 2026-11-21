@@ -1033,3 +1033,71 @@ if(dailyQuote){
 
 }
 
+// ===============================
+// 📋 COPY DAILY QUOTE
+// ===============================
+
+const copyQuoteBtn = document.getElementById("copyQuoteBtn");
+
+if (copyQuoteBtn) {
+
+    copyQuoteBtn.addEventListener("click", () => {
+
+        const quote = document.getElementById("dailyQuote").innerText;
+
+        navigator.clipboard.writeText(quote);
+
+        copyQuoteBtn.innerText = "✅ Copied!";
+
+        setTimeout(() => {
+            copyQuoteBtn.innerText = "📋 Copy";
+        }, 2000);
+
+    });
+
+}
+
+
+// ===============================
+// 📤 SHARE DAILY QUOTE
+// ===============================
+
+const shareQuoteBtn = document.getElementById("shareQuoteBtn");
+
+if (shareQuoteBtn) {
+
+    shareQuoteBtn.addEventListener("click", async () => {
+
+        const quote = document.getElementById("dailyQuote").innerText;
+
+        if (navigator.share) {
+
+            try {
+
+                await navigator.share({
+
+                    title: "Quote of the Day ❤️",
+
+                    text: quote,
+
+                    url: window.location.href
+
+                });
+
+            } catch (err) {
+
+                console.log("Share cancelled");
+
+            }
+
+        } else {
+
+            navigator.clipboard.writeText(quote);
+
+            alert("Sharing is not supported on this browser.\nThe quote has been copied instead!");
+
+        }
+
+    });
+
+}
