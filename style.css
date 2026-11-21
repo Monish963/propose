@@ -1988,3 +1988,12 @@ body{
     box-shadow:0 10px 25px rgba(255,45,117,.3);
 
 }
+.proposal-footer{
+    margin-top:30px;
+    font-size:18px;
+    line-height:1.8;
+    color:#ff4d88;
+    font-style:italic;
+    text-align:center;
+    font-weight:600;
+}
