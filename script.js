@@ -1101,3 +1101,44 @@ if (shareQuoteBtn) {
     });
 
 }
+// ===============================
+// ❤️ SAVE PROPOSAL YES RESPONSE TO FIREBASE
+// ===============================
+
+const yesButton = document.getElementById("yes-btn");
+
+if (yesButton) {
+
+    yesButton.addEventListener("click", async () => {
+
+        try {
+
+            const { collection, addDoc, serverTimestamp } = 
+            await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
+
+
+            const db = window.firebaseDB;
+
+
+            await addDoc(collection(db, "responses"), {
+
+                answer: "yes",
+
+                message: "proposal accepted",
+
+                time: serverTimestamp()
+
+            });
+
+
+            console.log("❤️ Proposal response saved!");
+
+        } catch(error) {
+
+            console.error("Firebase Error:", error);
+
+        }
+
+    });
+
+}
