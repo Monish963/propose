@@ -1166,5 +1166,5 @@ async function loadYesCount() {
     }
 
 }
-
+console.log(window.firebaseDB);
 loadYesCount();
