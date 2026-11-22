@@ -1166,7 +1166,7 @@ async function loadYesCount() {
 
         console.log("Total Yes:", snapshot.size);
 
-    } catch (error) {
+    { catch (error) {
 
         console.error("Counter Error:", error);
 
