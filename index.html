@@ -608,7 +608,7 @@ const db = getFirestore(app);
 window.firebaseDB = db;
 
 console.log("✅ Firebase Connected");
-
+window.dispatchEvent(new Event("firebaseReady"));
 </script>
 
 
