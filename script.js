@@ -1142,3 +1142,29 @@ if (yesButton) {
     });
 
 }
+// ❤️ LIVE YES COUNTER
+
+async function loadYesCount() {
+
+    try {
+
+        const db = window.firebaseDB;
+
+        const snapshot = await getDocs(collection(db, "responses"));
+
+        document.getElementById("yesCount").textContent = snapshot.size;
+
+        console.log("Total Yes:", snapshot.size);
+
+    } catch (error) {
+
+        console.error("Counter Error:", error);
+
+    }
+
+}
+
+
+setTimeout(() => {
+    loadYesCount();
+}, 1000);
