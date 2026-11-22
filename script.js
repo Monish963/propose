@@ -1190,7 +1190,7 @@ async function loadLikes() {
         await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
 
         const db = window.firebaseDB;
-
+        console.log("LIKE DB CHECK:", db);
         if (!db) {
             console.log("Firebase DB not ready");
             return;
