@@ -1208,15 +1208,25 @@ async function loadLikes() {
     }
 
 
-    document.getElementById("likeBtn").onclick = async () => {
+document.getElementById("likeBtn").onclick = async () => {
+
+    try {
 
         await updateDoc(likeRef, {
             count: increment(1)
         });
 
+        console.log("❤️ Like Updated");
+
         loadLikes();
 
-    };
+    } catch(error) {
+
+        console.error("Like Error:", error);
+
+    }
+
+};
 
 }
 
