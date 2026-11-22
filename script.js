@@ -1155,15 +1155,31 @@ async function loadYesCount() {
 
         const db = window.firebaseDB;
 
+        if (!db) {
+            console.log("Firebase not ready");
+            return;
+        }
+
         const snapshot = await getDocs(collection(db, "responses"));
 
         document.getElementById("yesCount").textContent = snapshot.size;
+
+        console.log("Total Yes:", snapshot.size);
 
     } catch (error) {
 
         console.error("Counter Error:", error);
 
     }
+
+}
+
+
+// Firebase load होने का इंतजार
+setTimeout(() => {
+    loadYesCount();
+}, 1000);
+    
 
 }
 console.log(window.firebaseDB);
