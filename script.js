@@ -1235,9 +1235,5 @@ async function loadLikes() {
 
 setTimeout(loadLikes, 2000);
       
-};
 
-}
-
-setTimeout(loadLikes, 2000);
 console.log("Like Script Loaded");
