@@ -1178,3 +1178,46 @@ async function loadYesCount() {
 }
 
 setTimeout(loadYesCount, 2000);
+// ===============================
+// ❤️ PUBLIC LIKE COUNTER
+// ===============================
+
+async function loadLikes() {
+
+    const { doc, getDoc, setDoc, updateDoc, increment } =
+    await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
+
+    const db = window.firebaseDB;
+
+    const likeRef = doc(db, "likes", "main");
+
+    const likeSnap = await getDoc(likeRef);
+
+    if (likeSnap.exists()) {
+
+        document.getElementById("likeCount").innerText =
+        likeSnap.data().count;
+
+    } else {
+
+        await setDoc(likeRef, {
+            count: 0
+        });
+
+        document.getElementById("likeCount").innerText = 0;
+    }
+
+
+    document.getElementById("likeBtn").onclick = async () => {
+
+        await updateDoc(likeRef, {
+            count: increment(1)
+        });
+
+        loadLikes();
+
+    };
+
+}
+
+setTimeout(loadLikes, 2000);
