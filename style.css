@@ -1997,3 +1997,25 @@ body{
     text-align:center;
     font-weight:600;
 }
+.yes-counter {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff4d88;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
