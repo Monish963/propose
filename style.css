@@ -2014,7 +2014,21 @@ body{
     50% {
         transform: scale(1.05);
     }
+.name-box {
+    text-align: center;
+    margin: 20px 0;
+}
 
+.name-box input {
+    width: 80%;
+    max-width: 300px;
+    padding: 12px 15px;
+    border-radius: 25px;
+    border: 2px solid #ff4d88;
+    outline: none;
+    font-size: 16px;
+    text-align: center;
+}
     100% {
         transform: scale(1);
     }
