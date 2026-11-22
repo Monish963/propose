@@ -1120,15 +1120,19 @@ if (yesButton) {
             const db = window.firebaseDB;
 
 
-            await addDoc(collection(db, "responses"), {
+           const visitorName = document.getElementById("visitorName").value.trim();
 
-                answer: "yes",
+await addDoc(collection(db, "responses"), {
 
-                message: "proposal accepted",
+    name: visitorName || "Anonymous",
 
-                time: serverTimestamp()
+    answer: "yes",
 
-            });
+    message: "proposal accepted",
+
+    time: serverTimestamp()
+
+});
 
 
             console.log("❤️ Proposal response saved!");
