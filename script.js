@@ -1184,41 +1184,46 @@ setTimeout(loadYesCount, 2000);
 
 async function loadLikes() {
 
-    const { doc, getDoc, setDoc, updateDoc, increment } =
-    await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
-
-    const db = window.firebaseDB;
-
-    const likeRef = doc(db, "likes", "main");
-
-    const likeSnap = await getDoc(likeRef);
-
-    if (likeSnap.exists()) {
-
-        document.getElementById("likeCount").innerText =
-        likeSnap.data().count;
-
-    } else {
-
-        await setDoc(likeRef, {
-            count: 0
-        });
-
-        document.getElementById("likeCount").innerText = 0;
-    }
-
-
-document.getElementById("likeBtn").onclick = async () => {
-
     try {
 
-        await updateDoc(likeRef, {
-            count: increment(1)
-        });
+        const { doc, getDoc, setDoc, updateDoc, increment } =
+        await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
 
-        console.log("❤️ Like Updated");
+        const db = window.firebaseDB;
 
-        loadLikes();
+        if (!db) {
+            console.log("Firebase DB not ready");
+            return;
+        }
+
+        const likeRef = doc(db, "likes", "main");
+
+        const likeSnap = await getDoc(likeRef);
+
+        if (likeSnap.exists()) {
+
+            document.getElementById("likeCount").innerText =
+            likeSnap.data().count;
+
+        } else {
+
+            await setDoc(likeRef, {
+                count: 0
+            });
+
+            document.getElementById("likeCount").innerText = 0;
+        }
+
+
+        document.getElementById("likeBtn").onclick = async () => {
+
+            await updateDoc(likeRef, {
+                count: increment(1)
+            });
+
+            loadLikes();
+
+        };
 
     } catch(error) {
 
@@ -1226,6 +1231,10 @@ document.getElementById("likeBtn").onclick = async () => {
 
     }
 
+}
+
+setTimeout(loadLikes, 2000);
+      
 };
 
 }
