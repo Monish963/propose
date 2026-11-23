@@ -1266,7 +1266,13 @@ async function loadLikes() {
 
 
 loadLikes();
-document.getElementById("likeBtn").addEventListener("click", () => {
-    console.log("❤️ Like Button Clicked");
-});
+const likeBtnTest = document.getElementById("likeBtn");
+
+console.log("LIKE BUTTON CHECK:", likeBtnTest);
+
+if (likeBtnTest) {
+    likeBtnTest.addEventListener("click", () => {
+        console.log("❤️ Like Button Clicked");
+    });
+}
 console.log("Like Script Loaded");
