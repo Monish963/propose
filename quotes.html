@@ -1871,5 +1871,30 @@ document.querySelectorAll(".like-btn").forEach(button => {
 
 });
 </script>
+      <!-- Script -->
+  <script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAgv_fKsEgD_tGttZgGlaShqCSWsGzAA7Y",
+  authDomain: "propose143.firebaseapp.com",
+  projectId: "propose143",
+  storageBucket: "propose143.firebasestorage.app",
+  messagingSenderId: "747419736560",
+  appId: "1:747419736560:web:46f1e38c0f86c849e1a535",
+  measurementId: "G-7WCS0QKLCH"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.firebaseDB = db;
+
+console.log("✅ Firebase Connected");
+window.dispatchEvent(new Event("firebaseReady"));
+</script>
+
 </body>
 </html>
