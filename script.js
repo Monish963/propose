@@ -1117,7 +1117,15 @@ if (yesButton) {
             await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
 
 
-            const db = window.firebaseDB;
+            const db = await new Promise((resolve) => {
+    if (window.firebaseDB) {
+        resolve(window.firebaseDB);
+    } else {
+        window.addEventListener("firebaseReady", () => {
+            resolve(window.firebaseDB);
+        }, { once: true });
+    }
+});
 
 
            const visitorName = document.getElementById("visitorName").value.trim();
@@ -1157,7 +1165,15 @@ async function loadYesCount() {
         const { collection, getDocs } = 
         await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
 
-        const db = window.firebaseDB;
+        const db = await new Promise((resolve) => {
+    if (window.firebaseDB) {
+        resolve(window.firebaseDB);
+    } else {
+        window.addEventListener("firebaseReady", () => {
+            resolve(window.firebaseDB);
+        }, { once: true });
+    }
+});
 
         const snapshot = await getDocs(collection(db, "responses"));
 
