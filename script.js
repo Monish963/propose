@@ -1205,22 +1205,12 @@ async function loadLikes() {
         const { doc, getDoc, setDoc, updateDoc, increment } =
         await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
 
-        const db = await new Promise((resolve) => {
+        const db = window.firebaseDB;
 
-    if (window.firebaseDB) {
-        resolve(window.firebaseDB);
-    } else {
+        console.log("LIKE DB:", db);
 
-        window.addEventListener("firebaseReady", () => {
-            resolve(window.firebaseDB);
-        });
-
-    }
-
-});
-        console.log("LIKE DB CHECK:", db);
         if (!db) {
-            console.log("Firebase DB not ready");
+            console.log("Firebase DB not available");
             return;
         }
 
@@ -1239,30 +1229,32 @@ async function loadLikes() {
                 count: 0
             });
 
-            document.getElementById("likeCount").innerText = 0;
         }
 
 
-        document.getElementById("likeBtn").onclick = async () => {
+        document.getElementById("likeBtn").onclick = async function(){
 
             await updateDoc(likeRef, {
                 count: increment(1)
             });
 
-            loadLikes();
+            const updated = await getDoc(likeRef);
+
+            document.getElementById("likeCount").innerText =
+            updated.data().count;
 
         };
 
-    } catch(error) {
 
-        console.error("Like Error:", error);
+    } catch(error){
+
+        console.error("LIKE ERROR:", error);
 
     }
 
 }
 
-loadLikes();
 
-      
+loadLikes();
 
 console.log("Like Script Loaded");
